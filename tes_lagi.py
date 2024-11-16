@@ -1,4 +1,7 @@
 import requests
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup as bs4
 
 # Mengambil halaman Wikipedia yang berisi daftar negara berdasarkan benua
@@ -42,7 +45,10 @@ for tbody in ol_html:
 #    print(countries)
 
 # Menampilkan hasilnya
-for continent, countries in zip(target_continents, countries_in_continents):
-    print(f"{continent}:")
-    for country in countries:
-        print(f"- {country}")
+#for continent, countries in zip(target_continents, countries_in_continents):
+#    print(f"{continent}:")
+#    for country in countries:
+#        print(f"- {country}")
+
+countries_continents_category_df = pd.DataFrame(zip(countries_in_continents, target_continents), columns=['Country', 'Continent'])
+print(countries_continents_category_df)

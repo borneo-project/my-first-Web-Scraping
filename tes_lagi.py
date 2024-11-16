@@ -51,4 +51,8 @@ for tbody in ol_html:
 #        print(f"- {country}")
 
 countries_continents_category_df = pd.DataFrame(zip(countries_in_continents, target_continents), columns=['Country', 'Continent'])
+#print(countries_continents_category_df)
+
+countries_continents_category_df = countries_continents_category_df.explode('Country').reset_index(drop=True)
 print(countries_continents_category_df)
+
